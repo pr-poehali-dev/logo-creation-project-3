@@ -9,77 +9,64 @@ interface LogoProps {
 
 const Logo = ({ size = "md", variant = "gradient", showIcon = true, className }: LogoProps) => {
   const sizeClasses = {
-    sm: "text-2xl",
-    md: "text-4xl",
-    lg: "text-6xl"
+    sm: "text-xl",
+    md: "text-3xl",
+    lg: "text-5xl"
   };
 
   const iconSizes = {
-    sm: 40,
-    md: 60,
-    lg: 90
+    sm: 36,
+    md: 54,
+    lg: 80
   };
 
   const variantClasses = {
     light: "text-white",
-    dark: "text-gray-900",
-    gradient: "bg-gradient-to-r from-[#A78BFA] via-[#EC4899] to-[#F59E0B] bg-clip-text text-transparent"
+    dark: "text-[#2C3E50]",
+    gradient: "text-[#2C3E50]"
   };
 
   return (
-    <div className={cn("flex items-center gap-3 group", className)}>
+    <div className={cn("flex items-center gap-2 group", className)}>
       {showIcon && (
         <div 
-          className="relative transition-all duration-700 group-hover:scale-105"
+          className="relative transition-all duration-500 group-hover:-translate-y-1"
           style={{ width: iconSizes[size], height: iconSizes[size] }}
         >
-          {/* Круг с радужным градиентом */}
-          <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[#A78BFA] via-[#EC4899] to-[#F59E0B] shadow-xl" />
-          
-          {/* Внутренний белый круг */}
-          <div className="absolute inset-[15%] rounded-full bg-white" />
-          
-          {/* Буква S стилизованная */}
+          {/* Минималистичный контур */}
           <svg
-            viewBox="0 0 24 24"
+            viewBox="0 0 100 100"
             fill="none"
-            className="absolute inset-0 w-full h-full p-3"
+            className="w-full h-full"
           >
-            <path
-              d="M16 8.5C16 6.5 14.5 5 12 5C9.5 5 8 6.5 8 8.5C8 10 9 10.5 11 11C13.5 11.7 16 12.5 16 15.5C16 17.5 14.5 19 12 19C9.5 19 8 17.5 8 15.5"
-              stroke="url(#gradient)"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              className="drop-shadow-sm"
-            />
-            <defs>
-              <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#A78BFA" />
-                <stop offset="50%" stopColor="#EC4899" />
-                <stop offset="100%" stopColor="#F59E0B" />
-              </linearGradient>
-            </defs>
+            {/* Три перекрывающихся круга - символ детства */}
+            <circle cx="30" cy="40" r="18" fill="#E8F5E9" stroke="#66BB6A" strokeWidth="2.5" />
+            <circle cx="50" cy="30" r="18" fill="#FFF3E0" stroke="#FFA726" strokeWidth="2.5" />
+            <circle cx="70" cy="40" r="18" fill="#F3E5F5" stroke="#AB47BC" strokeWidth="2.5" />
+            
+            {/* Маленькая птичка сверху */}
+            <path d="M45 18 Q50 15 55 18" stroke="#2C3E50" strokeWidth="2" strokeLinecap="round" fill="none" />
+            <path d="M47 18 L45 22" stroke="#2C3E50" strokeWidth="1.5" strokeLinecap="round" />
+            <path d="M53 18 L55 22" stroke="#2C3E50" strokeWidth="1.5" strokeLinecap="round" />
+            
+            {/* Линия основания */}
+            <line x1="20" y1="75" x2="80" y2="75" stroke="#2C3E50" strokeWidth="2" strokeLinecap="round" />
           </svg>
-          
-          {/* Анимированные точки */}
-          <div className="absolute top-0 right-2 w-2 h-2 bg-[#A78BFA] rounded-full animate-ping" />
-          <div className="absolute bottom-2 left-0 w-2 h-2 bg-[#F59E0B] rounded-full animate-ping" style={{ animationDelay: "0.5s" }} />
         </div>
       )}
       
       <div className="flex flex-col leading-none justify-center">
-        <span className={cn("font-black tracking-tighter transition-all duration-300", sizeClasses[size], variantClasses[variant])}>
-          SANDRA
+        <span className={cn("font-light tracking-wider transition-all duration-300 italic", sizeClasses[size], variantClasses[variant])}>
+          Sandra
         </span>
-        <div className="flex items-center gap-1 mt-1">
-          <div className="w-1.5 h-1.5 rounded-full bg-[#A78BFA]" />
-          <span className={cn("font-bold tracking-[0.2em] uppercase", 
-            size === "sm" ? "text-xs" : size === "md" ? "text-sm" : "text-xl",
-            variant === "gradient" ? "text-gray-700" : variant === "light" ? "text-white/90" : "text-gray-700"
+        <div className="flex items-center gap-2 mt-0.5">
+          <span className={cn("font-semibold tracking-[0.15em] uppercase", 
+            size === "sm" ? "text-[11px]" : size === "md" ? "text-sm" : "text-lg",
+            variant === "gradient" ? "text-[#66BB6A]" : variant === "light" ? "text-white/90" : "text-[#66BB6A]"
           )}>
-            KIDS
+            kids
           </span>
-          <div className="w-1.5 h-1.5 rounded-full bg-[#F59E0B]" />
+          <div className="w-1 h-1 rounded-full bg-[#FFA726]" />
         </div>
       </div>
     </div>
