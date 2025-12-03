@@ -1,15 +1,14 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import Icon from "@/components/ui/icon";
+import Logo from "@/components/Logo";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <nav className="container mx-auto px-6 py-6 flex items-center justify-between">
         <div className="flex items-center gap-8">
-          <h1 className="text-3xl font-bold bg-gradient-to-r from-[#60A5FA] to-[#EC4899] bg-clip-text text-transparent tracking-tight">
-            SANDRA KIDS
-          </h1>
+          <Logo size="md" showIcon={true} />
           <div className="hidden md:flex gap-6">
             <a href="#collections" className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
               Коллекции
@@ -169,9 +168,7 @@ const Index = () => {
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div>
-              <h4 className="text-xl font-bold bg-gradient-to-r from-[#60A5FA] to-[#EC4899] bg-clip-text text-transparent mb-4">
-                SANDRA KIDS
-              </h4>
+              <Logo size="sm" showIcon={true} className="mb-4" />
               <p className="text-sm text-muted-foreground">
                 Премиальная детская одежда с минималистичным дизайном
               </p>
