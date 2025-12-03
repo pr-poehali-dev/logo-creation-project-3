@@ -15,52 +15,54 @@ const Logo = ({ size = "md", variant = "gradient", showIcon = true, className }:
   };
 
   const iconSizes = {
-    sm: 24,
-    md: 36,
-    lg: 56
+    sm: 32,
+    md: 48,
+    lg: 72
   };
 
   const variantClasses = {
     light: "text-white",
     dark: "text-gray-900",
-    gradient: "bg-gradient-to-r from-[#60A5FA] to-[#EC4899] bg-clip-text text-transparent"
+    gradient: "text-[#FF6B9D]"
   };
 
   return (
-    <div className={cn("flex items-center gap-3 group", className)}>
+    <div className={cn("flex items-center gap-4 group", className)}>
       {showIcon && (
         <div 
-          className="relative transition-transform duration-300 group-hover:scale-110"
+          className="relative transition-all duration-500 group-hover:rotate-12 group-hover:scale-110"
           style={{ width: iconSizes[size], height: iconSizes[size] }}
         >
-          {/* Круглый фон с градиентом */}
-          <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[#60A5FA] to-[#EC4899] opacity-90" />
+          {/* Фон в виде скруглённого квадрата */}
+          <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#FFB6D9] via-[#FF6B9D] to-[#C94277] shadow-lg" />
           
-          {/* Звёздочка внутри */}
+          {/* Милое сердечко */}
           <svg
             viewBox="0 0 24 24"
             fill="none"
-            className="absolute inset-0 w-full h-full p-1.5"
+            className="absolute inset-0 w-full h-full p-2"
           >
-            {/* Центральная звезда */}
             <path
-              d="M12 2L14.09 8.26L20 9.27L15.45 13.14L16.91 19L12 15.77L7.09 19L8.55 13.14L4 9.27L9.91 8.26L12 2Z"
+              d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
               fill="white"
-              className="drop-shadow-sm"
+              className="drop-shadow-md"
             />
-            {/* Маленькая звёздочка */}
-            <circle cx="18" cy="6" r="2" fill="white" className="animate-pulse" />
           </svg>
+          
+          {/* Декоративные кружочки */}
+          <div className="absolute -top-1 -right-1 w-3 h-3 bg-[#FFE66D] rounded-full animate-pulse" />
+          <div className="absolute -bottom-1 -left-1 w-2 h-2 bg-[#4ECDC4] rounded-full animate-pulse" style={{ animationDelay: "0.3s" }} />
         </div>
       )}
       
       <div className="flex flex-col leading-none">
-        <span className={cn("font-bold tracking-tight transition-all duration-300", sizeClasses[size], variantClasses[variant])}>
-          SANDRA
+        <span className={cn("font-black tracking-tight transition-all duration-300 relative", sizeClasses[size], variantClasses[variant])}>
+          Sandra
+          <span className="absolute -top-1 -right-3 text-[0.4em] animate-bounce">✨</span>
         </span>
-        <span className={cn("font-semibold tracking-widest", 
-          size === "sm" ? "text-xs" : size === "md" ? "text-sm" : "text-lg",
-          variant === "gradient" ? "text-gray-600" : variant === "light" ? "text-white/80" : "text-gray-500"
+        <span className={cn("font-bold tracking-[0.3em] uppercase", 
+          size === "sm" ? "text-[10px]" : size === "md" ? "text-xs" : "text-base",
+          variant === "gradient" ? "text-[#4ECDC4]" : variant === "light" ? "text-white/90" : "text-gray-700"
         )}>
           KIDS
         </span>
